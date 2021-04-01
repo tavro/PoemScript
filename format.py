@@ -2,7 +2,6 @@ import webbrowser
 import os
 import sys
 
-
 header_start_symbol = '['
 header_end_symbol = ']'
 
@@ -10,13 +9,15 @@ author_start_symbol = '('
 author_end_symbol = ')'
 
 content = []
+title = ""
 
 
 def process_file(path):
     with open(path) as file:
         lines = [line.rstrip() for line in file]
     for line in lines:
-        process_line(line)
+        if line:
+            process_line(line)
 
 
 def process_line(line):
@@ -29,17 +30,17 @@ def process_line(line):
 
 
 def append_header(line):
-    processed_line = "<h1 style=\"font-weight: bold\">" + line + "</h1>"
+    processed_line = "<h1 style=\"font-weight: bold; margin-bottom: 0px;\">" + line + "</h1>"
     content.append(processed_line)
 
 
 def append_author(line):
-    processed_line = "<p style=\"color:gray\">by " + line + "</p>"
+    processed_line = "<p style=\"color:gray;  margin-top: 0px;\">by " + line + "</p>"
     content.append(processed_line)
 
 
 def append_paragraph(line):
-    processed_line = "<p>" + line + "</p>"
+    processed_line = "<p style=\"margin-bottom: 6px; margin-top: 6px;\">" + line + "</p>"
     content.append(processed_line)
 
 
@@ -55,13 +56,20 @@ def open_document(name):
 
 
 def generate_document(path):
+    global title
+    title = sys.argv[1][:-4]
+
     meta1 = "<!DOCTYPE HTML><html><head><meta charset=\"utf-8\"/>"
     content.append(meta1)
-    customizable1 = "<title>Poem</title>"
+
+    customizable1 = "<title>" + title + "</title>"
+
     content.append(customizable1)
     meta2 = "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/></head><body>"
     content.append(meta2)
-    customizable2 = "<div class=\"poem\">"
+
+    customizable2 = "<div class=\"" + title + "\" style=\"margin: auto; width: 50%;\">"
+
     content.append(customizable2)
 
     process_file(path)
@@ -69,8 +77,8 @@ def generate_document(path):
     meta3 = "</div></body></html>"
     content.append(meta3)
 
-    write("poem")
-    open_document("poem")
+    write(title)
+    open_document(title)
 
 
 def main():
