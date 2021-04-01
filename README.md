@@ -24,6 +24,9 @@ python format.py [filename.txt]
 // generates a <p>-tag
 text 
 ```
+#### example
+![Example](example.png)
+
 ### features :heavy_check_mark:
 * Generates a html-file based on PoemScript file
 
