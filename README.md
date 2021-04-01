@@ -36,6 +36,7 @@ text
 ### ideas :bulb:
 * separate css & html file
 * specify color, font and size 
+* handle multiple files at once
 
 ### bugs & cons :warning:
 * unknown at this point
