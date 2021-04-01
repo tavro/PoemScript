@@ -13,6 +13,17 @@ My own markdown language for poems
 python format.py [filename.txt]
 ```
 
+#### standard syntax
+```
+// generates a <h1>-tag
+[Title] 
+
+// generates a <p>-tag in gray saying "by Author"
+(Author) 
+
+// generates a <p>-tag
+text 
+```
 ### features :heavy_check_mark:
 * Generates a html-file based on PoemScript file
 
@@ -20,7 +31,8 @@ python format.py [filename.txt]
 * this will be blank for now
 
 ### ideas :bulb:
-* this will be blank for now
+* separate css & html file
+* specify color, font and size 
 
 ### bugs & cons :warning:
 * unknown at this point
