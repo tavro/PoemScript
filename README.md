@@ -37,6 +37,8 @@ text
 * separate css & html file
 * specify color, font and size 
 * handle multiple files at once
+* comments
+* HTML to PNG/PDF 
 
 ### bugs & cons :warning:
 * unknown at this point
