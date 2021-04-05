@@ -8,6 +8,8 @@ header_end_symbol = ']'
 author_start_symbol = '('
 author_end_symbol = ')'
 
+comment_symbol = '#'
+
 content = []
 title = ""
 
@@ -15,9 +17,19 @@ title = ""
 def process_file(path):
     with open(path) as file:
         lines = [line.rstrip() for line in file]
+
+    is_comment = False
     for line in lines:
         if line:
-            process_line(line)
+            if comment_symbol in line:
+                if not (line.count(comment_symbol) % 2 == 0):
+                    is_comment = not is_comment
+                    if not is_comment:
+                        continue
+                else:
+                    continue
+            if not is_comment:
+                process_line(line)
 
 
 def process_line(line):
