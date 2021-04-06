@@ -23,11 +23,6 @@ python format.py [filename.txt]
 
 // generates a <p>-tag
 text 
-
-// ignore line(s)
-#
-line(s) to ignore
-#
 ```
 #### example
 ![Example](example.png)
@@ -42,6 +37,7 @@ line(s) to ignore
 * separate css & html file
 * specify color, font and size 
 * handle multiple files at once
+* comments
 * HTML to PNG/PDF 
 
 ### bugs & cons :warning:

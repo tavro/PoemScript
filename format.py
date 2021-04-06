@@ -10,13 +10,22 @@ author_end_symbol = ')'
 
 comment_symbol = '#'
 
+middle_marker = ':M'
+right_marker = ':R'
+
 content = []
 title = ""
 
+is_centered = False
+to_right = False
 
-def process_file(path):
+
+def process_file(path, class_name):
     with open(path) as file:
         lines = [line.rstrip() for line in file]
+
+    customizable2 = "<div class=\"" + class_name + "\" style=\"margin: auto; width: 50%;\">"
+    content.append(customizable2)
 
     is_comment = False
     for line in lines:
@@ -31,10 +40,39 @@ def process_file(path):
             if not is_comment:
                 process_line(line)
 
+    meta3 = "</div></body></html>"
+    content.append(meta3)
+
 
 def process_line(line):
     if line.startswith(header_start_symbol) and line.endswith(header_end_symbol):
-        append_header(line[1:-1])
+        center = "<br>"
+        content.append(center)
+
+        global is_centered
+        global to_right
+
+        if is_centered:
+            center = "</center>"
+            content.append(center)
+            is_centered = False
+        elif to_right:
+            div = "</div>"
+            content.append(div)
+            to_right = False
+
+        if middle_marker in line:
+            is_centered = True
+            center = "<center>"
+            content.append(center)
+            append_header(line[1:-3])
+        elif right_marker in line:
+            to_right = True
+            div = "<div style=\"float: right;\">"
+            content.append(div)
+            append_header(line[1:-3])
+        else:
+            append_header(line[1:-1])
     elif line.startswith(author_start_symbol) and line.endswith(author_end_symbol):
         append_author(line[1:-1])
     else:
@@ -75,19 +113,12 @@ def generate_document(path):
     content.append(meta1)
 
     customizable1 = "<title>" + title + "</title>"
-
     content.append(customizable1)
+
     meta2 = "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/></head><body>"
     content.append(meta2)
 
-    customizable2 = "<div class=\"" + title + "\" style=\"margin: auto; width: 50%;\">"
-
-    content.append(customizable2)
-
-    process_file(path)
-
-    meta3 = "</div></body></html>"
-    content.append(meta3)
+    process_file(path, title)
 
     write(title)
     open_document(title)
