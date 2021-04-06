@@ -18,11 +18,22 @@ python format.py [filename.txt]
 // generates a <h1>-tag
 [Title] 
 
+// position poem to middle
+[Title:M]
+
+// position poem to right
+[Title:R]
+
 // generates a <p>-tag in gray saying "by Author"
 (Author) 
 
 // generates a <p>-tag
 text 
+
+// ignore line(s)
+#
+line(s) to ignore
+#
 ```
 #### example
 ![Example](example.png)
@@ -37,7 +48,6 @@ text
 * separate css & html file
 * specify color, font and size 
 * handle multiple files at once
-* comments
 * HTML to PNG/PDF 
 
 ### bugs & cons :warning:
