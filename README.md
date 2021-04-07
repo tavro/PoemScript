@@ -5,6 +5,7 @@ My own markdown language for poems
 
 ```
 1) download this repo
+2) pip install pdfkit
 ```
 
 ### how to use :question:
@@ -40,6 +41,7 @@ line(s) to ignore
 
 ### features :heavy_check_mark:
 * Generates a html-file based on PoemScript file
+* Generates a pdf-file based on PoemScript file
 
 ### todo :clipboard:
 * this will be blank for now
@@ -48,7 +50,7 @@ line(s) to ignore
 * separate css & html file
 * specify color, font and size 
 * handle multiple files at once
-* HTML to PNG/PDF 
+* HTML to PNG 
 
 ### bugs & cons :warning:
 * unknown at this point
