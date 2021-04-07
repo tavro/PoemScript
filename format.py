@@ -1,6 +1,7 @@
 import webbrowser
 import os
 import sys
+import pdfkit
 
 header_start_symbol = '['
 header_end_symbol = ']'
@@ -99,10 +100,11 @@ def write(name):
     for line in content:
         file.write('%s\n' % line)
     file.close()
+    pdfkit.from_file(name + ".html", name + ".pdf")
 
 
 def open_document(name):
-    webbrowser.open_new_tab(os.getcwd() + '/' + name + '.html')
+    webbrowser.open_new_tab(os.getcwd() + '/' + name + '.pdf')
 
 
 def generate_document(path):
