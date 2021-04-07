@@ -11,7 +11,7 @@ My own markdown language for poems
 ### how to use :question:
 
 ```
-python format.py [filename.txt]
+python processor.py [filename.txt]
 ```
 
 #### standard syntax
