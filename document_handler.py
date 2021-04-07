@@ -7,51 +7,81 @@ content = []
 
 
 def append(line):
+    """
+    appends given line to document
+    """
     content.append(line)
 
 
 def append_opening_tag(tag_type):
+    """
+    appends opening tag of given type to document
+    """
     processed_line = "<" + tag_type + ">"
     content.append(processed_line)
 
 
+def append_closing_tag(tag_type):
+    """
+    appends closing tag of given type to document
+    """
+    processed_line = "</" + tag_type + ">"
+    content.append(processed_line)
+
+
 def append_title(title):
+    """
+    appends opening and closing title-tag containing given content to document
+    """
     processed_line = "<title>" + title + "</title>"
     content.append(processed_line)
 
 
 def append_header(line):
+    """
+    appends opening and closing header-tag containing given content (in bold) to document
+    """
     processed_line = "<h1 style=\"font-weight: bold; margin-bottom: 0px;\">" + line + "</h1>"
     content.append(processed_line)
 
 
-def append_closing_tag(tag_type):
-    processed_line = "</" + tag_type + ">"
-    content.append(processed_line)
-
-
 def append_author(line):
+    """
+    appends opening and closing p-tag containing given content (in gray) to document
+    """
     processed_line = "<p style=\"color:gray;  margin-top: 0px;\">by " + line + "</p>"
     content.append(processed_line)
 
 
 def append_paragraph(line):
+    """
+    appends opening and closing p-tag containing given content to document
+    """
     processed_line = "<p style=\"margin-bottom: 6px; margin-top: 6px;\">" + line + "</p>"
     content.append(processed_line)
 
 
 def append_centered_div(class_name):
+    """
+    appends a centered div with given class name to document
+    """
     processed_line = "<div class=\"" + class_name + "\" style=\"margin: auto; width: 50%;\">"
     content.append(processed_line)
 
 
 def append_closing_tags():
+    """
+    appends some common closing tags to document
+    """
     append_closing_tag("div")
     append_closing_tag("body")
     append_closing_tag("html")
 
 
 def write(name):
+    """
+    generates a html file with given name based on content in document and converts it to pdf
+    """
     file = open(os.getcwd() + '/' + name + '.html', 'w')
     for line in content:
         file.write('%s\n' % line)
@@ -60,10 +90,16 @@ def write(name):
 
 
 def open_document(name):
+    """
+    opens pdf with given name
+    """
     webbrowser.open_new_tab(os.getcwd() + '/' + name + '.pdf')
 
 
 def generate_document(path, title, process_func):
+    """
+    generates html file, converts it to pdf and opens it
+    """
     append("<!DOCTYPE HTML><html><head><meta charset=\"utf-8\"/>")
 
     append_title(title)

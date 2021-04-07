@@ -9,11 +9,19 @@ to_right = False
 
 
 def process_file(path, class_name):
+    """
+    converts PoemScript Markdown to html
+
+    :param path: file containing PoemScript Markdown
+    :param class_name: div class name
+    """
+    # get every line in given file as list
     with open(path) as file:
         lines = [line.rstrip() for line in file]
 
     document_handler.append_centered_div(class_name)
 
+    # check for lines to ignore
     is_comment = False
     symbol = settings.get_comment_symbol()
     for line in lines:
@@ -32,12 +40,17 @@ def process_file(path, class_name):
 
 
 def process_line(line):
+    """
+    helper function for process_file
+    """
+    # check if header
     if line.startswith(settings.get_header_start_symbol()) and line.endswith(settings.get_header_end_symbol()):
         document_handler.append_opening_tag("br")
 
         global is_centered
         global to_right
 
+        # close alignment
         if is_centered:
             document_handler.append_closing_tag("center")
             is_centered = False
@@ -45,6 +58,7 @@ def process_line(line):
             document_handler.append_closing_tag("div")
             to_right = False
 
+        # check how to align
         if settings.get_middle_marker() in line:
             is_centered = True
             document_handler.append_opening_tag("center")
