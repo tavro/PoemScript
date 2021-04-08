@@ -30,6 +30,9 @@ colors = [":IndianRed", ":LightCoral", ":Salmon", ":DarkSalmon", ":LightSalmon",
           ":MistyRose", ":Gainsboro", ":LightGray", ":Silver", ":DarkGray", ":Gray", ":DimGray", ":LightSlateGray",
           ":SlateGray", ":DarkSlateGray", ":Black"]
 
+fonts = [":Arial", ":Verdana", ":Helvetica", ":Tahoma", ":Trebuchet MS", ":Times New Roman", ":Georgia",
+         ":Garamond", ":Courier New", ":Brush Script MT"]
+
 
 def get_header_start_symbol():
     return header_start_symbol

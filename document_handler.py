@@ -37,27 +37,29 @@ def append_title(title):
     content.append(processed_line)
 
 
-def append_header(line, color):
+def append_header(line, color, font):
     """
     appends opening and closing header-tag containing given content (in bold & given color) to document
     """
-    processed_line = "<h1 style=\"font-weight: bold; margin-bottom: 0px; color: " + color + ";\">" + line + "</h1>"
+    processed_line = "<h1 style=\"font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + \
+                     ";\">" + line + "</h1>"
     content.append(processed_line)
 
 
-def append_author(line, color):
+def append_author(line, color, font):
     """
     appends opening and closing p-tag containing given content (in given color) to document
     """
-    processed_line = "<p style=\"color: " + color + ";  margin-top: 0px;\">by " + line + "</p>"
+    processed_line = "<p style=\"color: " + color + "; font-family:" + font + "; margin-top: 0px;\">by " + line + "</p>"
     content.append(processed_line)
 
 
-def append_paragraph(line, color):
+def append_paragraph(line, color, font):
     """
     appends opening and closing p-tag containing given content (in given color) to document
     """
-    processed_line = "<p style=\"margin-bottom: 6px; margin-top: 6px; color: " + color + ";\">" + line + "</p>"
+    processed_line = "<p style=\"margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + \
+                     ";\">" + line + "</p>"
     content.append(processed_line)
 
 

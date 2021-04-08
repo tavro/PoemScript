@@ -52,12 +52,22 @@ def process_line(line):
             color = col[1:]
             break
 
+    # get font
+    font = ""
+    for ft in settings.fonts:
+        if ft in line:
+            line = line.replace(ft, '')
+            font = ft[1:]
+            break
+
     # check if header
     if line.startswith(settings.get_header_start_symbol()) and line.endswith(settings.get_header_end_symbol()):
         document_handler.append_opening_tag("br")
 
         if not color:
             color = "black"
+        if not font:
+            font = "Arial"
 
         global is_centered
         global to_right
@@ -74,21 +84,25 @@ def process_line(line):
         if settings.get_middle_marker() in line:
             is_centered = True
             document_handler.append_opening_tag("center")
-            document_handler.append_header(line[1:-3], color)
+            document_handler.append_header(line[1:-3], color, font)
         elif settings.get_right_marker() in line:
             to_right = True
             document_handler.append("<div style=\"float: right;\">")
-            document_handler.append_header(line[1:-3], color)
+            document_handler.append_header(line[1:-3], color, font)
         else:
-            document_handler.append_header(line[1:-1], color)
+            document_handler.append_header(line[1:-1], color, font)
     elif line.startswith(settings.get_author_start_symbol()) and line.endswith(settings.get_author_end_symbol()):
         if not color:
             color = "gray"
-        document_handler.append_author(line[1:-1], color)
+        if not font:
+            font = "Arial"
+        document_handler.append_author(line[1:-1], color, font)
     else:
         if not color:
             color = "black"
-        document_handler.append_paragraph(line, color)
+        if not font:
+            font = "Arial"
+        document_handler.append_paragraph(line, color, font)
 
 
 def main():
