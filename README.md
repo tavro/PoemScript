@@ -36,13 +36,18 @@ text
 (Author:ColorName)
 text:ColorName
 
+// styles tag with given font
+[Title:FontName]
+(Author:FontName)
+text:FontName
+
 // ignore line(s)
 #
 line(s) to ignore
 #
 ```
 #### example
-![Example](test.png)
+![Example](preview.png)
 
 ### features :heavy_check_mark:
 * Generates a html-file based on PoemScript file
@@ -53,7 +58,7 @@ line(s) to ignore
 
 ### ideas :bulb:
 * separate css & html file
-* specify font and size 
+* specify font-size 
 * handle multiple files at once
 * HTML to PNG 
 
