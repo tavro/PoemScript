@@ -54,13 +54,14 @@ line(s) to ignore
 * Generates a pdf-file based on PoemScript file
 
 ### todo :clipboard:
-* this will be blank for now
-
-### ideas :bulb:
 * separate css & html file
 * specify font-size 
+* specify background color
+
+### ideas :bulb:
+* style multiple lines at once
 * handle multiple files at once
-* HTML to PNG 
+* configuration txt file instead of settings.py
 
 ### bugs & cons :warning:
 * unknown at this point
