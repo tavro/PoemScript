@@ -31,13 +31,18 @@ python processor.py [filename.txt]
 // generates a <p>-tag
 text 
 
+// styles tag with given color
+[Title:ColorName]
+(Author:ColorName)
+text:ColorName
+
 // ignore line(s)
 #
 line(s) to ignore
 #
 ```
 #### example
-![Example](example.png)
+![Example](test.png)
 
 ### features :heavy_check_mark:
 * Generates a html-file based on PoemScript file
@@ -48,7 +53,7 @@ line(s) to ignore
 
 ### ideas :bulb:
 * separate css & html file
-* specify color, font and size 
+* specify font and size 
 * handle multiple files at once
 * HTML to PNG 
 
