@@ -1,5 +1,8 @@
 [Haiku]
 (Ron Padgett)
+First, calm down.
+Next, stay that way
+for the rest of your life.
 
 First, calm down.
 Next, stay that way
@@ -7,14 +10,12 @@ for the rest of your life.
 
 [Haiku:M:SteelBlue:Times New Roman]
 (Ron Padgett:LightSteelBlue:Times New Roman)
-
 First, calm down.:SkyBlue:Times New Roman
 Next, stay that way:SkyBlue:Times New Roman
 for the rest of your life.:SkyBlue:Times New Roman
 
 [Haiku:R:Thistle:Brush Script MT]
 #(Ron Padgett:Lavender)#
-
 First, calm down.:Courier New
 Next, stay that way:Garamond
 for the rest of your life.:Trebuchet MS

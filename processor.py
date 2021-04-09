@@ -35,6 +35,8 @@ def process_file(path, class_name):
                     continue
             if not is_comment:
                 process_line(line)
+        else:
+            document_handler.append_opening_tag("br")
 
     document_handler.append_closing_tags()
 
