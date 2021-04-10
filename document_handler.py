@@ -4,6 +4,7 @@ import webbrowser
 
 
 content = []
+css_content = []
 
 
 def append(line):
@@ -41,26 +42,48 @@ def append_header(line, color, font):
     """
     appends opening and closing header-tag containing given content (in bold & given color) to document
     """
-    processed_line = "<h1 style=\"font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + \
-                     ";\">" + line + "</h1>"
+    class_name = "header_" + color + "_" + font
+    class_name = class_name.replace(' ', '')
+
+    processed_line = "<h1 class=" + class_name + ">" + line + "</h1>"
     content.append(processed_line)
+
+    append_opening_css_scope(class_name)
+    css = "font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + ";"
+    css_content.append(css)
+    append_closing_css_scope()
 
 
 def append_author(line, color, font):
     """
     appends opening and closing p-tag containing given content (in given color) to document
     """
-    processed_line = "<p style=\"color: " + color + "; font-family:" + font + "; margin-top: 0px;\">by " + line + "</p>"
+    class_name = "author_" + color + "_" + font
+    class_name = class_name.replace(' ', '')
+
+    processed_line = "<p class=" + class_name + ">by " + line + "</p>"
     content.append(processed_line)
+
+    append_opening_css_scope(class_name)
+    css = "color: " + color + "; font-family:" + font + "; margin-top: 0px;"
+    css_content.append(css)
+    append_closing_css_scope()
 
 
 def append_paragraph(line, color, font):
     """
     appends opening and closing p-tag containing given content (in given color) to document
     """
-    processed_line = "<p style=\"margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + \
-                     ";\">" + line + "</p>"
+    class_name = "paragraph_" + color + "_" + font
+    class_name = class_name.replace(' ', '')
+
+    processed_line = "<p class=" + class_name + ">" + line + "</p>"
     content.append(processed_line)
+
+    append_opening_css_scope(class_name)
+    css = "margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + ";"
+    css_content.append(css)
+    append_closing_css_scope()
 
 
 def append_centered_div(class_name):
@@ -80,14 +103,29 @@ def append_closing_tags():
     append_closing_tag("html")
 
 
+def append_opening_css_scope(class_name):
+    css = "." + class_name + " {"
+    css_content.append(css)
+
+
+def append_closing_css_scope():
+    css = "}"
+    css_content.append(css)
+
+
 def write(name):
     """
     generates a html file with given name based on content in document and converts it to pdf
     """
+    # write to html
     file = open(os.getcwd() + '/' + name + '.html', 'w')
     for line in content:
         file.write('%s\n' % line)
+        if "<style>" in line:
+            for css_line in css_content:
+                file.write('%s\n' % css_line)
     file.close()
+
     pdfkit.from_file(name + ".html", name + ".pdf")
 
 
@@ -107,6 +145,9 @@ def generate_document(path, title, process_func):
     append_title(title)
 
     append("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"/>")
+    append_opening_tag("style")
+    append_closing_tag("style")
+
     append_closing_tag("head")
     append_opening_tag("body")
 
