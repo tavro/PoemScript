@@ -54,7 +54,7 @@ line(s) to ignore
 * Generates a pdf-file based on PoemScript file
 
 ### todo :clipboard:
-* separate css & html file
+* separate css & html file (puts css in <style></style> for now because it causes problems with converting to pdf)
 * specify font-size 
 * specify background color
 
@@ -64,7 +64,7 @@ line(s) to ignore
 * configuration txt file instead of settings.py
 
 ### bugs & cons :warning:
-* unknown at this point
+* generates duplicate css code in <style></style> (will fix this soon)
 
 ### contributions :trophy:
 * you could be on this list
