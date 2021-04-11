@@ -39,7 +39,7 @@ def append_title(title):
     content.append(processed_line)
 
 
-def append_header(line, color, font):
+def append_header(line, color, font, size):
     """
     appends opening and closing header-tag containing given content (in bold & given color) to document
     """
@@ -50,11 +50,12 @@ def append_header(line, color, font):
     content.append(processed_line)
 
     if class_name not in classes:
-        css = "font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + ";"
+        css = "font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + "; font-size: " + \
+              size + "px;"
         append_css_scope(class_name, css)
 
 
-def append_author(line, color, font):
+def append_author(line, color, font, size):
     """
     appends opening and closing p-tag containing given content (in given color) to document
     """
@@ -65,11 +66,11 @@ def append_author(line, color, font):
     content.append(processed_line)
 
     if class_name not in classes:
-        css = "color: " + color + "; font-family:" + font + "; margin-top: 0px;"
+        css = "color: " + color + "; font-family:" + font + "; margin-top: 0px; font-size: " + size + "px;"
         append_css_scope(class_name, css)
 
 
-def append_paragraph(line, color, font):
+def append_paragraph(line, color, font, size):
     """
     appends opening and closing p-tag containing given content (in given color) to document
     """
@@ -80,7 +81,8 @@ def append_paragraph(line, color, font):
     content.append(processed_line)
 
     if class_name not in classes:
-        css = "margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + ";"
+        css = "margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + "; font-size: " + \
+              size + "px;"
         append_css_scope(class_name, css)
 
 
