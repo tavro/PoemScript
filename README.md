@@ -41,6 +41,11 @@ text:ColorName
 (Author:FontName)
 text:FontName
 
+// specify font-size
+[Title:32]
+(Author:12)
+text:16
+
 // ignore line(s)
 #
 line(s) to ignore
@@ -55,7 +60,6 @@ line(s) to ignore
 
 ### todo :clipboard:
 * separate css & html file (puts css in <style></style> for now because it causes problems with converting to pdf)
-* specify font-size 
 * specify background color
 * style multiple lines at once
 * handle multiple files at once
