@@ -64,7 +64,7 @@ line(s) to ignore
 * configuration txt file instead of settings.py
 
 ### bugs & cons :warning:
-* generates duplicate css code in <style></style> (will fix this soon)
+* unknown
 
 ### contributions :trophy:
 * you could be on this list
