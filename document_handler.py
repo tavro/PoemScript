@@ -5,6 +5,7 @@ import webbrowser
 
 content = []
 css_content = []
+classes = []
 
 
 def append(line):
@@ -48,10 +49,9 @@ def append_header(line, color, font):
     processed_line = "<h1 class=" + class_name + ">" + line + "</h1>"
     content.append(processed_line)
 
-    append_opening_css_scope(class_name)
-    css = "font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + ";"
-    css_content.append(css)
-    append_closing_css_scope()
+    if class_name not in classes:
+        css = "font-weight: bold; margin-bottom: 0px; color: " + color + "; font-family:" + font + ";"
+        append_css_scope(class_name, css)
 
 
 def append_author(line, color, font):
@@ -64,10 +64,9 @@ def append_author(line, color, font):
     processed_line = "<p class=" + class_name + ">by " + line + "</p>"
     content.append(processed_line)
 
-    append_opening_css_scope(class_name)
-    css = "color: " + color + "; font-family:" + font + "; margin-top: 0px;"
-    css_content.append(css)
-    append_closing_css_scope()
+    if class_name not in classes:
+        css = "color: " + color + "; font-family:" + font + "; margin-top: 0px;"
+        append_css_scope(class_name, css)
 
 
 def append_paragraph(line, color, font):
@@ -80,10 +79,9 @@ def append_paragraph(line, color, font):
     processed_line = "<p class=" + class_name + ">" + line + "</p>"
     content.append(processed_line)
 
-    append_opening_css_scope(class_name)
-    css = "margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + ";"
-    css_content.append(css)
-    append_closing_css_scope()
+    if class_name not in classes:
+        css = "margin-bottom: 6px; margin-top: 6px; color: " + color + "; font-family:" + font + ";"
+        append_css_scope(class_name, css)
 
 
 def append_centered_div(class_name):
@@ -111,6 +109,15 @@ def append_opening_css_scope(class_name):
 def append_closing_css_scope():
     css = "}"
     css_content.append(css)
+
+
+def append_css_scope(class_name, css):
+    global classes
+    classes.append(class_name)
+
+    append_opening_css_scope(class_name)
+    css_content.append(css)
+    append_closing_css_scope()
 
 
 def write(name):
