@@ -57,11 +57,12 @@ line(s) to ignore
 * separate css & html file (puts css in <style></style> for now because it causes problems with converting to pdf)
 * specify font-size 
 * specify background color
-
-### ideas :bulb:
 * style multiple lines at once
 * handle multiple files at once
 * configuration txt file instead of settings.py
+
+### ideas :bulb:
+* feel free to come up with ideas
 
 ### bugs & cons :warning:
 * unknown
