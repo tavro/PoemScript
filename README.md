@@ -66,7 +66,7 @@ line(s) to ignore
 * configuration txt file instead of settings.py
 
 ### ideas :bulb:
-* feel free to come up with ideas
+* real time markdown website for making poems (like overleaf)
 
 ### bugs & cons :warning:
 * unknown
