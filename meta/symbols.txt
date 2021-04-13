@@ -1,0 +1,6 @@
+scope {}
+header []
+author ()
+comment #
+aligncenter :M
+alignright :R

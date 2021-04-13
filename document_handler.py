@@ -90,8 +90,12 @@ def append_centered_div(class_name):
     """
     appends a centered div with given class name to document
     """
-    processed_line = "<div class=\"" + class_name + "\" style=\"margin: auto; width: 50%;\">"
+    processed_line = "<div class=\"" + class_name + "\">"
     content.append(processed_line)
+
+    if class_name not in classes:
+        css = "margin: auto; width: 50%;"
+        append_css_scope(class_name, css)
 
 
 def append_closing_tags():
