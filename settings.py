@@ -11,6 +11,18 @@ def get_colors():
         return [line.rstrip() for line in file]
 
 
+def get_scope_symbols():
+    return '{}'
+
+
+def get_scope_start_symbol():
+    return get_scope_symbols()[0]
+
+
+def get_scope_end_symbol():
+    return get_scope_symbols()[1]
+
+
 def get_header_symbols():
     return '[]'
 

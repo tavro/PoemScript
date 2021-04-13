@@ -75,11 +75,7 @@ def process_line(line):
     # check if header
     if line.startswith(settings.get_header_start_symbol()) and line.endswith(settings.get_header_end_symbol()):
         document_handler.append_opening_tag("br")
-
-        if not size:
-            size = "32"
-        if not color:
-            color = "black"
+        size, color = process_arguments(size, "32", color, "black")
 
         global is_centered
         global to_right
@@ -104,19 +100,31 @@ def process_line(line):
         else:
             document_handler.append_header(line[1:-1], color, font, size)
     elif line.startswith(settings.get_author_start_symbol()) and line.endswith(settings.get_author_end_symbol()):
-        if not size:
-            size = "12"
-        if not color:
-            color = "gray"
-
+        size, color = process_arguments(size, "12", color, "gray")
         document_handler.append_author(line[1:-1], color, font, size)
     else:
-        if not size:
-            size = "16"
-        if not color:
-            color = "black"
-
+        size, color = process_arguments(size, "16", color, "black")
         document_handler.append_paragraph(line, color, font, size)
+
+
+def process_arguments(size, default_size, color, default_color):
+    if not size:
+        size = default_size
+    if not color:
+        color = default_color
+    return size, color
+
+
+def get_color():
+    pass
+
+
+def get_font():
+    pass
+
+
+def get_size():
+    pass
 
 
 def main():
