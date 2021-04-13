@@ -49,7 +49,7 @@ def process_line(line):
 
     # get color
     color = ""
-    for col in settings.colors:
+    for col in settings.get_colors():
         if col in line:
             line = line.replace(col, '')
             color = col[1:]
@@ -57,7 +57,7 @@ def process_line(line):
 
     # get font
     font = "Arial"
-    for ft in settings.fonts:
+    for ft in settings.get_fonts():
         if ft in line:
             line = line.replace(ft, '')
             font = ft[1:]
