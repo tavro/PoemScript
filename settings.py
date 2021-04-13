@@ -1,16 +1,5 @@
 import os
 
-header_start_symbol = '['
-header_end_symbol = ']'
-
-author_start_symbol = '('
-author_end_symbol = ')'
-
-comment_symbol = '#'
-
-middle_marker = ':M'
-right_marker = ':R'
-
 
 def get_fonts():
     with open(os.getcwd() + '/meta/fonts.txt') as file:
@@ -23,36 +12,36 @@ def get_colors():
 
 
 def get_header_symbols():
-    pass
+    return '[]'
 
 
 def get_header_start_symbol():
-    return header_start_symbol
+    return get_header_symbols()[0]
 
 
 def get_header_end_symbol():
-    return header_end_symbol
+    return get_header_symbols()[1]
 
 
 def get_author_symbols():
-    pass
+    return '()'
 
 
 def get_author_start_symbol():
-    return author_start_symbol
+    return get_author_symbols()[0]
 
 
 def get_author_end_symbol():
-    return author_end_symbol
+    return get_author_symbols()[1]
 
 
 def get_comment_symbol():
-    return comment_symbol
+    return '#'
 
 
 def get_middle_marker():
-    return middle_marker
+    return ':M'
 
 
 def get_right_marker():
-    return right_marker
+    return ':R'
