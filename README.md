@@ -67,6 +67,7 @@ line(s) to ignore
 
 ### ideas :bulb:
 * real time markdown website for making poems (like overleaf)
+![Example](eg.png)
 
 ### bugs & cons :warning:
 * unknown
