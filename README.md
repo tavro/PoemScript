@@ -66,7 +66,7 @@ line(s) to ignore
 * configuration txt file instead of settings.py
 
 ### ideas :bulb:
-* real time markdown website for making poems (like overleaf)
+* real time markdown website for making poems (like overleaf) (React & Django)
 ![Example](eg.png)
 
 ### bugs & cons :warning:
